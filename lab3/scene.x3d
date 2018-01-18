@@ -1,7 +1,6 @@
 <Scene>
 <IMPORT inlineDEF="H3D_EXPORTS" exportedDEF="HDEV" AS="HDEV"/>
-<ForceField DEF="MyForceField" force="0 0 0"/>
-  <!--<NavigationInfo type="None"/>-->
+  <NavigationInfo type="None"/>
   <Transform translation="-0.1 0 0">
     <Shape DEF="BOX">
       <Appearance>
@@ -45,14 +44,6 @@
   </Transform>
   
 
-
-  <Transform>
-    <Shape>
-        <Appearance>
-        <Sphere DEF="ForceSphere" radius="0.04"/>
-        <Appearance/>
-    </Shape>
-  </Transform>
   
   
   <Transform  translation="0 -0.07 0">
@@ -80,7 +71,6 @@
   
   
   <PythonScript DEF="PS" url="checkCollision.py" />
-  <PythonScript DEF="HOOKEFORCE" url="hookesLaw.py" /> 
   
   <ROUTE fromNode="MySphere" fromField="isTouched"
             toNode="PS" toField="changeColor"/>
@@ -92,9 +82,5 @@
   <ROUTE fromNode="PS" fromField="changeCubeColor"
         toNode = "cubeMaterial" toField="diffuseColor"/>
         
-  <ROUTE fromNode="ForceSphere" fromField="isTouched"
-            toNode="HOOKEFORCE" toField="calcForce"/>
-  <!--<ROUTE fromNode="HOOKEFORCE" fromField"calcForce"
-            toNode="MyForceField" toField="force"/> -->
-  
+
 </Scene>
